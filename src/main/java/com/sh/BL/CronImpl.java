@@ -14,8 +14,8 @@ public class CronImpl implements Cron {
     }
 
     public List<FileInfo> getFilesToBeProcessed() {
-        List<FileInfo> files = new ArrayList<FileInfo>();
-        //read folder contents and get all files
-        return files;
+        List<FileInfo> fileInfoList = new ArrayList<FileInfo>();
+        // cron logic
+        return fileInfoList;
     }
 }

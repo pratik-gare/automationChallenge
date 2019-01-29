@@ -1,17 +1,23 @@
 package com.sh.parser;
 
-import com.sh.model.FileInfo;
 import com.sh.model.SupplierInfo;
 import com.sh.interfaces.Parser;
 
 public class TXTParser implements Parser {
-    private FileInfo fileInfo;
 
-    public TXTParser(FileInfo fileInfo) {
-        this.fileInfo = fileInfo;
+    public void setProductIdIndex(int columnNumber) {
+
     }
 
-    public SupplierInfo parse() {
+    public void setQuantityIndex(int columnNumber) {
+
+    }
+
+    public void updateMetadata(String line, String productKeyword, String quantityKeyword) {
+
+    }
+
+    public SupplierInfo parse(String line, String supplierId) {
         return null;
     }
 }

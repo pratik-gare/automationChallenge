@@ -4,6 +4,7 @@ import com.sh.BL.CronImpl;
 import com.sh.BL.FileProcessor;
 import com.sh.model.FileInfo;
 import com.sh.interfaces.Cron;
+import com.sh.model.SupplierInfo;
 
 import java.util.List;
 
@@ -15,7 +16,5 @@ public class Client {
         List<FileInfo> filesToBeProcessed = cronJob.getFilesToBeProcessed();
         FileProcessor processor = new FileProcessor();
         processor.process(filesToBeProcessed);
-
-
     }
 }

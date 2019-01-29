@@ -13,13 +13,13 @@ public class FileTypeFactory {
         FileType fileType = fileInfo.getFileType();
         switch (fileType) {
             case CSV:
-                return new CSVParser(fileInfo);
+                return new CSVParser();
             case EXCEL:
-                return new EXCELParser(fileInfo);
+                return new EXCELParser();
             case TAB_DELIMITED:
-                return new TABDELIMITEDParser(fileInfo);
+                return new TABDELIMITEDParser();
             case TXT:
-                return new TXTParser(fileInfo);
+                return new TXTParser();
         }
         return null;
     }
