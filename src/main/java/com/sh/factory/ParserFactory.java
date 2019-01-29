@@ -1,14 +1,14 @@
 package com.sh.factory;
 
 import com.sh.enums.FileType;
-import com.sh.interfaces.Parser;
-import com.sh.model.FileInfo;
+import com.sh.parser.Parser;
+import com.sh.file.FileInfo;
 import com.sh.parser.CSVParser;
 import com.sh.parser.EXCELParser;
 import com.sh.parser.TABDELIMITEDParser;
 import com.sh.parser.TXTParser;
 
-public class FileTypeFactory {
+public class ParserFactory {
     public static Parser getFileParser(FileInfo fileInfo) {
         FileType fileType = fileInfo.getFileType();
         switch (fileType) {

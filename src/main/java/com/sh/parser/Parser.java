@@ -1,6 +1,6 @@
-package com.sh.interfaces;
+package com.sh.parser;
 
-import com.sh.model.SupplierInfo;
+import com.sh.supplier.SupplierInfo;
 
 public interface Parser {
     public void setProductIdIndex(int columnNumber);

@@ -1,7 +1,6 @@
 package com.sh.parser;
 
-import com.sh.model.SupplierInfo;
-import com.sh.interfaces.Parser;
+import com.sh.supplier.SupplierInfo;
 
 public class TXTParser implements Parser {
 

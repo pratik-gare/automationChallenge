@@ -1,9 +1,9 @@
-package com.sh.BL;
+package com.sh.file;
 
-import com.sh.interfaces.Parser;
-import com.sh.model.FileInfo;
-import com.sh.factory.FileTypeFactory;
-import com.sh.model.SupplierInfo;
+import com.sh.parser.Parser;
+import com.sh.factory.ParserFactory;
+import com.sh.supplier.SupplierInfo;
+import com.sh.task.TaskConfiguration;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,10 +11,22 @@ import java.util.List;
 
 public class FileProcessor {
 
-    public void process(List<FileInfo> fileInfoList) {
+    List<FileInfo> fileInfoList;
+
+    public FileProcessor(TaskConfiguration taskConfiguration) {
+        fileInfoList = new ArrayList<FileInfo>();
+        updateFilesToBeProcessed(taskConfiguration);
+    }
+
+    public void updateFilesToBeProcessed(TaskConfiguration taskConfiguration) {
+        // use folder path to access the folder from taskconfiguration
+        // get all the files to be processed by the some logic
+    }
+
+    public void process() {
         for (FileInfo fileInfo: fileInfoList) {
             List<SupplierInfo> supplierInfoList = extract(fileInfo);
-            //persist into DB file by file
+            // persist into DB file by file
         }
     }
 
@@ -25,9 +37,8 @@ public class FileProcessor {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-
         List<SupplierInfo> supplierInfoList = new ArrayList<SupplierInfo>();
-        Parser parser = FileTypeFactory.getFileParser(fileInfo);
+        Parser parser = ParserFactory.getFileParser(fileInfo);
 
         if (fileIterator.hasNext()) {
             parser.updateMetadata(fileIterator.getNextLine(), "Product", "Quantity");
@@ -35,7 +46,6 @@ public class FileProcessor {
         while (fileIterator.hasNext()) {
             supplierInfoList.add(parser.parse(fileIterator.getNextLine(), fileInfo.getFileName()));
         }
-
         return supplierInfoList;
     }
 }

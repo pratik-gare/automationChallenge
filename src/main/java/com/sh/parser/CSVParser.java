@@ -4,8 +4,7 @@ import com.sh.exception.DataNotFoundException;
 import com.sh.exception.MetadataNotFoundException;
 import com.sh.exception.ProductIdInfoNotFoundException;
 import com.sh.exception.QuantityInfoNotFound;
-import com.sh.model.SupplierInfo;
-import com.sh.interfaces.Parser;
+import com.sh.supplier.SupplierInfo;
 
 public class CSVParser implements Parser {
 

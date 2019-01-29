@@ -1,4 +1,4 @@
-package com.sh.model;
+package com.sh.file;
 
 import com.sh.enums.FileType;
 

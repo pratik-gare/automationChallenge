@@ -1,4 +1,4 @@
-package com.sh.model;
+package com.sh.supplier;
 
 public class SupplierInfo {
     private final String supplierId;

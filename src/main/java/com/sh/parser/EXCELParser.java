@@ -1,8 +1,6 @@
 package com.sh.parser;
 
-import com.sh.model.FileInfo;
-import com.sh.model.SupplierInfo;
-import com.sh.interfaces.Parser;
+import com.sh.supplier.SupplierInfo;
 
 public class EXCELParser implements Parser {
 
