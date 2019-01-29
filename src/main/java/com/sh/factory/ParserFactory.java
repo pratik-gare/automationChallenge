@@ -14,9 +14,8 @@ import com.sh.parser.TXTParser;
 public class ParserFactory {
 
     /**
-     * Returns an instance of Parser based on fileType
      * @param fileInfo information of the file
-     * @return Parser an instance of corresponding parser
+     * @return Parser a concrete instance of Parser based on fileType
      */
     public static Parser getFileParser(FileInfo fileInfo) {
         FileType fileType = fileInfo.getFileType();

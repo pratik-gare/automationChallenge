@@ -1,5 +1,8 @@
 package com.sh.file;
 
+import com.sh.DB.DBConfiguration;
+import com.sh.DB.DBManager;
+import com.sh.factory.DBFactory;
 import com.sh.parser.Parser;
 import com.sh.factory.ParserFactory;
 import com.sh.supplier.SupplierInfo;
@@ -17,14 +20,18 @@ public class FileProcessor {
     /**
      * fileInfoList list of file information to be processed
      */
-    List<FileInfo> fileInfoList;
+    private List<FileInfo> fileInfoList;
+
+    private DBManager dbManager;
 
     /**
      * @param taskConfiguration task configuration
+     * @param dbConfiguration configuration of the db
      */
-    public FileProcessor(TaskConfiguration taskConfiguration) {
+    public FileProcessor(TaskConfiguration taskConfiguration, DBConfiguration dbConfiguration) {
         fileInfoList = new ArrayList<FileInfo>();
         updateFilesToBeProcessed(taskConfiguration);
+        dbManager = DBFactory.getDBManager(dbConfiguration);
     }
 
     /**
@@ -32,7 +39,7 @@ public class FileProcessor {
      */
     public void updateFilesToBeProcessed(TaskConfiguration taskConfiguration) {
         // use folder path to access the folder from taskConfiguration
-        // get all the files to be processed by the some logic
+        // load all the file information to be processed from the folder specified in task config
     }
 
     /**
@@ -41,8 +48,7 @@ public class FileProcessor {
     public void process() {
         for (FileInfo fileInfo: fileInfoList) {
             List<SupplierInfo> supplierInfoList = extract(fileInfo);
-            // TODO: Write an database interface
-            // persist into DB file by file
+            dbManager.insertOrUpdate(supplierInfoList);
         }
     }
 
