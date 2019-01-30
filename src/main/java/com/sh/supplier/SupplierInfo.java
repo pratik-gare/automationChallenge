@@ -23,6 +23,9 @@ public class SupplierInfo {
     private final long quantity;
 
 
+    // add more fields if you need to persist more things
+
+
     /**
      * @param supplierId id of the supplier
      * @param productId id of the product
